@@ -15,6 +15,7 @@
 		<class>br.com.ages.food.api.perssitence.run.food.entites.ItemPedido</class>
 		<class>br.com.ages.food.api.perssitence.run.food.entites.Estoque</class>
 		<class>br.com.ages.food.api.perssitence.run.food.entites.PagamentoCartao</class>
+		<class>br.com.ages.food.api.perssitence.run.food.entites.PagamentoBoleto</class>
 		<!-- Entidades -->
 		<properties>
 			<!-- Propriedades JDBC -->
