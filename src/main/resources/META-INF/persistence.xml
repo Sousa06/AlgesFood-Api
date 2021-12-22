@@ -9,6 +9,7 @@
 		<!-- Implementação do JPA Hibernate -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>br.com.ages.food.api.perssitence.run.food.entites.Pedido</class>
+		<class>br.com.ages.food.api.perssitence.run.food.entites.Produto</class>
 		<!-- Entidades -->
 		<properties>
 			<!-- Propriedades JDBC -->
