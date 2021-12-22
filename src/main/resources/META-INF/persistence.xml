@@ -13,6 +13,7 @@
 		<class>br.com.ages.food.api.perssitence.run.food.entites.Cliente</class>
 		<class>br.com.ages.food.api.perssitence.run.food.entites.Categoria</class>
 		<class>br.com.ages.food.api.perssitence.run.food.entites.ItemPedido</class>
+		<class>br.com.ages.food.api.perssitence.run.food.entites.Estoque</class>
 		<!-- Entidades -->
 		<properties>
 			<!-- Propriedades JDBC -->
