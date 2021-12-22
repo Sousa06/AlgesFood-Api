@@ -1,15 +1,15 @@
 package br.com.ages.food.api.perssitence.run.food.entites;
 
-import java.beans.ConstructorProperties;
 import java.io.Serializable;
-import java.lang.Integer;
-import java.lang.Long;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
