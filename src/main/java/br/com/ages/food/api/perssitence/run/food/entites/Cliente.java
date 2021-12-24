@@ -7,6 +7,7 @@ import java.lang.String;
 import java.time.LocalDate;
 import javax.persistence.*;
 
+import br.com.ages.food.api.perssitence.run.food.entites.api.enums.SexoCliente;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -42,6 +43,10 @@ public class Cliente implements Serializable {
 	@Column(name = "cli_versao")
 	private Integer versao;
 	private static final long serialVersionUID = 1L;
+	
+	//Atributos do relacionamento.
+	@Enumerated(EnumType.STRING)
+	private SexoCliente sexo;
 
 	public Cliente(String primeiroNome, String segundoNome, String cpf, LocalDate dataNascimento, Integer versao) {
 
