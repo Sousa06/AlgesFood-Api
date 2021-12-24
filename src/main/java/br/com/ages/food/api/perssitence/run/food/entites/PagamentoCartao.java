@@ -20,6 +20,7 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "pagamento_cartao",schema = "algesfood")
 @Entity
 public class PagamentoCartao implements Serializable {
 
@@ -27,8 +28,11 @@ public class PagamentoCartao implements Serializable {
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pac_id")
 	private Long id;
+	@Column(name = "pac_numero_cartao")
 	private String numeroCartao;
+	@Column(name = "pac_versao")
 	private Integer versao;
 	private static final long serialVersionUID = 1L;
 

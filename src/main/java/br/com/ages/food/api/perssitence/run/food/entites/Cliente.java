@@ -21,18 +21,25 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "cliente",schema = "algesfood")
 @Entity
 public class Cliente implements Serializable {
 
 	@EqualsAndHashCode.Include
 	@Setter(value = AccessLevel.NONE)
 	@Id
+	@Column(name = "cli_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "cli_primeiro_nome")
 	private String primeiroNome;
+	@Column(name = "cli_segundo_nome")
 	private String segundoNome;
+	@Column(name = "cli_cpf")
 	private String cpf;
+	@Column(name = "cli_data_nascimento")
 	private LocalDate dataNascimento;
+	@Column(name = "cli_versao")
 	private Integer versao;
 	private static final long serialVersionUID = 1L;
 

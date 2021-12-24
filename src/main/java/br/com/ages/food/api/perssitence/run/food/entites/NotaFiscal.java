@@ -20,6 +20,7 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "nota_fiscal",schema = "algesfood")
 @Entity
 public class NotaFiscal implements Serializable {
 
@@ -27,14 +28,18 @@ public class NotaFiscal implements Serializable {
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "not_id")
 	private long id;
+	@Column(name = "not_xml")
 	private Byte xml;
+	@Column(name = "not_data_emissao")
 	private LocalDate dataEmissao;
+	@Column(name = "not_versao")
 	private Long versao;
 	private static final long serialVersionUID = 1L;
 
 	public NotaFiscal(Byte xml, LocalDate dataEmissao, Long versao) {
-		super();
+		
 		this.xml = xml;
 		this.dataEmissao = dataEmissao;
 		this.versao = versao;

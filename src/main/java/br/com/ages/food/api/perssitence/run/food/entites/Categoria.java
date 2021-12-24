@@ -19,18 +19,26 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "cliente", schema = "algesfood")
 @Entity
 public class Categoria implements Serializable {
 
-	@Setter(value = AccessLevel.NONE) 
+	@Setter(value = AccessLevel.NONE)
 	@EqualsAndHashCode.Include
+	@Column(name = "cat_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "cat_versao")
 	private Long versao;
+	@Column(name = "cat_nome")
 	private String nome;
 	private static final long serialVersionUID = 1L;
 
-	
-   
+	public Categoria(Long versao, String nome) {
+
+		this.versao = versao;
+		this.nome = nome;
+	}
+
 }

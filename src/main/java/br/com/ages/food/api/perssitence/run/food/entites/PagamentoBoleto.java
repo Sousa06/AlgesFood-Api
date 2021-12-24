@@ -20,6 +20,7 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "pagamento_boleto",schema = "algesfood")
 @Entity
 public class PagamentoBoleto implements Serializable {
 
@@ -27,8 +28,11 @@ public class PagamentoBoleto implements Serializable {
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pag_id")
 	private Long id;
+	@Column(name = "pag_data_vencimento")
 	private LocalDate dataVencimento;
+	@Column(name = "pag_codigo_de_barra")
 	private String codigoDeBarra;
 	private static final long serialVersionUID = 1L;
 

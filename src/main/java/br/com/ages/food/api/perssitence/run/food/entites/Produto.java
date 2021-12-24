@@ -22,6 +22,7 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
+@Table(name = "produto",schema = "algesfood")
 @Entity
 public class Produto implements Serializable {
 
@@ -30,13 +31,21 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	@Setter(value = AccessLevel.NONE)
+	@Column(name = "pro_id")
 	private Long id;
+	@Column(name = "pro_data_criacao")
 	private LocalDateTime dataCriacao;
+	@Column(name = "pro_data_ultima_atualizacao")
 	private LocalDateTime dataUltimaAtualizacao;
+	@Column(name = "pro_nome")
 	private String nome;
+	@Column(name = "pro_descricao")
 	private String descricao;
+	@Column(name = "pro_preco")
 	private BigDecimal preco;
+	@Column(name = "pro_ativo")
 	private Boolean ativo;
+	@Column(name = "pro_vercao")
 	private Long vercao;
 	private static final long serialVersionUID = 1L;
 	
