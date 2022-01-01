@@ -6,6 +6,8 @@ import java.lang.Long;
 import java.lang.String;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.AccessLevel;
@@ -48,6 +50,14 @@ public class Produto implements Serializable {
 	@Column(name = "pro_vercao")
 	private Long vercao;
 	private static final long serialVersionUID = 1L;
+	
+	//Mapeamento dos relacionamentos
+	@ManyToMany
+	@JoinTable(name = "produtos_categorias",
+	joinColumns = {@JoinColumn(name = "produto_pro_id")},
+	inverseJoinColumns = {@JoinColumn (name ="categoria_cat_id")}
+	 )
+	private List<Categoria> categorias;
 	
 	public Produto(LocalDateTime dataCriacao, LocalDateTime dataUltimaAtualizacao, String nome, String descricao,
 			BigDecimal preco, Boolean ativo, Long vercao) {
