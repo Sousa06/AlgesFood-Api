@@ -1,10 +1,18 @@
 package br.com.ages.food.api.perssitence.run.food.entites;
 
 import java.io.Serializable;
-import java.lang.Long;
-import java.lang.String;
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -34,8 +42,16 @@ public class Categoria implements Serializable {
 	@Column(name = "cat_nome")
 	private String nome;
 	private static final long serialVersionUID = 1L;
-
-	public Categoria(Long versao, String nome) {
+	
+	//Mapeamento dos relacionamentos
+	@ManyToOne
+	@JoinColumn(name = "cat_categoria_pai_id")
+	Categoria categoria_pai;
+     
+	@OneToMany(mappedBy = "categoria_pai")
+	List<Categoria> categorias = new ArrayList<>();
+	
+    Categoria(Long versao, String nome) {
 
 		this.versao = versao;
 		this.nome = nome;
