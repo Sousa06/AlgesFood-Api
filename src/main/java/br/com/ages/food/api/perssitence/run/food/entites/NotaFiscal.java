@@ -37,6 +37,11 @@ public class NotaFiscal implements Serializable {
 	@Column(name = "not_versao")
 	private Long versao;
 	private static final long serialVersionUID = 1L;
+	
+	//Mapeamento dos relacionamentos.
+	@OneToOne
+	@JoinColumn(name="not_pedido_ped_id")
+	Pedido pedido;
 
 	public NotaFiscal(Byte xml, LocalDate dataEmissao, Long versao) {
 		
