@@ -24,11 +24,9 @@ import lombok.Setter;
 @Entity
 public class NotaFiscal implements Serializable {
 
-	@Setter(value = AccessLevel.NONE)
+	
 	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "not_id")
 	private long id;
 	@Column(name = "not_xml")
 	private Byte xml;
@@ -39,9 +37,10 @@ public class NotaFiscal implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//Mapeamento dos relacionamentos.
+	@MapsId
 	@OneToOne
 	@JoinColumn(name="not_pedido_ped_id")
-	Pedido pedido;
+	private Pedido pedido;
 
 	public NotaFiscal(Byte xml, LocalDate dataEmissao, Long versao) {
 		
