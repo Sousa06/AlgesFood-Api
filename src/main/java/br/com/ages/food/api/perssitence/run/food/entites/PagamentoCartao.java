@@ -24,17 +24,21 @@ import lombok.Setter;
 @Entity
 public class PagamentoCartao implements Serializable {
 
-	@Setter(value = AccessLevel.NONE)
+	
 	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "pac_id")
-	private Long id;
+	private Integer id;
 	@Column(name = "pac_numero_cartao")
 	private String numeroCartao;
 	@Column(name = "pac_versao")
 	private Integer versao;
 	private static final long serialVersionUID = 1L;
+	
+	//Atributos do relacionamento
+	@MapsId
+	@OneToOne
+	@JoinColumn(name = "pag_id")
+	private Pedido pedido;
 
 	
    
