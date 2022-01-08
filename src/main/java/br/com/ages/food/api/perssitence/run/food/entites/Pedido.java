@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
@@ -38,7 +39,7 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="ped_id")
-	private Long id;
+	private Integer id;
 	@Column(name ="ped_data_criacao")
 	private LocalDateTime dataCriacao;
 	@Column(name ="ped_data_ultima-atualizacao")
@@ -54,7 +55,10 @@ public class Pedido implements Serializable {
 	//Mapeamento dos relacionamentos
 	@ManyToOne
 	@JoinColumn(name = "ped_cliente_cli_id")
-	Cliente cliente;
+	private Cliente cliente;
+	@OneToOne(mappedBy = "pedido")
+	private NotaFiscal notaFiscal;
+	
 	
 	public Pedido(LocalDateTime dataCriacao, LocalDateTime dataUtlimaAtualizacao, LocalDateTime dataConclusao,
 			BigDecimal total, Integer versao) {
