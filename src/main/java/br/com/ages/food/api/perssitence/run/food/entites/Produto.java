@@ -6,6 +6,7 @@ import java.lang.Long;
 import java.lang.String;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -34,7 +35,7 @@ public class Produto implements Serializable {
 	@EqualsAndHashCode.Include
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "pro_id")
-	private Long id;
+	private Integer id;
 	@Column(name = "pro_data_criacao")
 	private LocalDateTime dataCriacao;
 	@Column(name = "pro_data_ultima_atualizacao")
@@ -58,6 +59,8 @@ public class Produto implements Serializable {
 	inverseJoinColumns = {@JoinColumn (name ="categoria_cat_id")}
 	 )
 	private List<Categoria> categorias;
+	@OneToMany(mappedBy = "produto")
+	private List<ItemPedido> produtos = new ArrayList<ItemPedido>();
 	
 	public Produto(LocalDateTime dataCriacao, LocalDateTime dataUltimaAtualizacao, String nome, String descricao,
 			BigDecimal preco, Boolean ativo, Long vercao) {
